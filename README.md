@@ -6,13 +6,13 @@ A simple Python class for using LASER multilingual embeddings without explicitly
 
 Firstly, install LASER and its dependencies from the [original repository](https://github.com/facebookresearch/LASER/).
 ```
-!git clone https://github.com/facebookresearch/LASER.git
-!cd LASER && export LASER="<full path to LASER installation root>" && bash ./install_external_tools.sh && bash ./install_models.sh
+git clone https://github.com/facebookresearch/LASER.git
+cd LASER && export LASER="<full path to LASER installation root>" && bash ./install_external_tools.sh && bash ./install_models.sh
 ```
 
 Then clone the wrapper repository.
 ```
-!git clone https://github.com/sopilnyak/laser_wrapper.git
+git clone https://github.com/sopilnyak/laser_wrapper.git
 ```
 
 ## Example
