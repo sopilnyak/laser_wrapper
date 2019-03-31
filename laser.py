@@ -10,8 +10,8 @@ class Laser:
 
     def __init__(self, encoder_path, bpe_codes, use_gpu=True):
         """
-        :param encoder_path: path to encoder model weights
-        :param bpe_codes: file with BPE to apply
+        :param encoder_path: path to encoder weights
+        :param bpe_codes: path to file with BPE codes
         :param use_gpu: use GPU instead of CPU
         """
         self.encoder = SentenceEncoder(encoder_path,
@@ -25,8 +25,8 @@ class Laser:
         """
         Returns LASER embeddings of input sentences.
         :param sentences: list of strings with input sentences
-        :param tokenizer_lang: language of tokenizer
-        :param verbose: display log messages
+        :param tokenizer_lang: language to perform tokenization with
+        :param verbose: show log messages
         :return: (n_sentences, 1024)
         """
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -34,7 +34,7 @@ class Laser:
             input_file = os.path.join(tmpdir, 'input')
             with open(input_file, 'w') as f:
                 for sentence in sentences:
-                    f.write("%s\n" % sentence)
+                    f.write("%s\n" % sentence.replace('\n', ' '))
 
             # Tokenizing
             token_file = os.path.join(tmpdir, 'token')
